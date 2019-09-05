@@ -1,7 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/git'
-  entrypoint: bash
-  args: ['git', 'rev-parse', '--short', 'Head', '>', '/shared/sha']
+  args: [ 'rev-parse', '--short', 'Head', '>', '/shared/sha']
   volumes:
   - name: 'shared'
     path: '/shared'
