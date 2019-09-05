@@ -1,7 +1,11 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'gcr.io/cloudadmingcpdemos/nodeserver', '.']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy']
+  timeout: 1600s
   
 images: ['gcr.io/cloudadmingcpdemos/nodeserver']
 options:
   env: ['PROJECT_DIRECTORY=haha']
+timeout: 2000s
