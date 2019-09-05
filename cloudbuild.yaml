@@ -1,11 +1,5 @@
 steps:
-- name: 'gcr.io/cloud-builders/git'
-  args: [ 'rev-parse', '--short', 'Head', '>', '/shared/sha']
-  volumes:
-  - name: 'shared'
-    path: '/shared'
-- name: 'ubuntu'
-  volumes: 
-  - name: 'shared'
-    path: '/shared'
-  args: ['cat', '/shared/sha']
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'gcr.io/cloudadmingcpdemos/nodeserver:${HEAD}', '.']
+  
+images: ['gcr.io/cloudadmingcpdemos/nodeserver']
